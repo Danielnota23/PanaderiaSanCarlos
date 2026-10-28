@@ -1,5 +1,0 @@
-target/
-database/
-*.md
-.git/
-nb-configuration.xml
