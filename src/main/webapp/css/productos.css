@@ -1,0 +1,231 @@
+.barra-productos {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.barra-productos input {
+    flex: 1;
+
+    padding: 12px 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+.btn-nuevo {
+    padding: 12px 20px;
+
+    background: #6b3e26;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-nuevo:hover {
+    background: #512d1b;
+}
+
+
+/* TABLA */
+
+.tabla-contenedor {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f5f1e8;
+}
+
+th,
+td {
+    padding: 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+th {
+    color: #6b3e26;
+}
+
+td {
+    color: #444;
+}
+
+.estado-activo {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    color: #c62828;
+    font-weight: bold;
+}
+
+
+/* BOTONES DE LA TABLA */
+
+.btn-editar,
+.btn-eliminar {
+    padding: 7px 12px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    margin-right: 5px;
+}
+
+.btn-editar {
+    background: #f0ad4e;
+    color: white;
+}
+
+.btn-eliminar {
+    background: #c62828;
+    color: white;
+}
+
+
+/* FORMULARIO */
+
+.formulario-producto {
+    margin-top: 30px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-producto h2 {
+    color: #6b3e26;
+    margin-bottom: 20px;
+}
+
+.campo-formulario {
+    margin-bottom: 18px;
+}
+
+.campo-formulario label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+.campo-formulario input,
+.campo-formulario textarea,
+.campo-formulario select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+.campo-formulario textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+
+/* BOTONES FORMULARIO */
+
+.botones-formulario {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-guardar {
+    padding: 11px 20px;
+
+    background: #2e7d32;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    padding: 11px 20px;
+
+    background: #777;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* OCULTAR FORMULARIO */
+
+.oculto {
+    display: none;
+}
+
+
+/* MENSAJES */
+
+#mensajeProducto {
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+.mensaje-exito {
+    color: #2e7d32;
+}
+
+.mensaje-error {
+    color: #c62828;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .barra-productos {
+        flex-direction: column;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Sucursales - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/sucursales.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <h2>
+                    Panadería
+                </h2>
+
+                <p>
+                    San Carlos
+                </p>
+
+            </div>
+
+
+            <nav>
+
+                <a href="dashboard-admin.html">
+                    🏠 Dashboard
+                </a>
+
+                <a href="productos.html">
+                    📦 Productos
+                </a>
+
+                <a href="pedidos.html">
+                    📝 Pedidos
+                </a>
+
+                <a href="produccion.html">
+                    🏭 Producción
+                </a>
+
+                <a href="inventario.html">
+                    📊 Inventario
+                </a>
+
+                <a
+                    href="sucursales.html"
+                    class="activo"
+                >
+                    🏢 Sucursales
+                </a>
+
+                <a href="usuarios.html">
+    👥 Usuarios
+</a>
+
+            </nav>
+
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO -->
+        <main class="contenido">
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+
+                    <h1>
+                        Sucursales
+                    </h1>
+
+                    <p>
+                        Administración de sucursales
+                        de Panadería San Carlos
+                    </p>
+
+                </div>
+
+
+                <div class="usuario">
+
+                    <span>
+                        👤
+                    </span>
+
+                    <div>
+
+                        <strong id="nombreUsuario">
+                            Administrador
+                        </strong>
+
+                        <p id="rolUsuario">
+                            ADMIN
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- BUSCADOR -->
+            <section class="barra-sucursales">
+
+                <input
+                    type="text"
+                    id="buscarSucursal"
+                    placeholder="Buscar sucursal..."
+                >
+
+            </section>
+
+
+            <!-- TABLA -->
+            <section class="panel-sucursales">
+
+                <div class="titulo-panel">
+
+                    <h2>
+                        Sucursales registradas
+                    </h2>
+
+                    <p>
+                        Listado de sucursales activas
+                    </p>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Nombre
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaSucursales">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/sucursales.js"></script>
+
+</body>
+
+</html>

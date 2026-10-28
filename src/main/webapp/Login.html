@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panadería San Carlos - Iniciar Sesión</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <div class="logo">
+                <h1>Panadería San Carlos</h1>
+                <p>Sistema de Gestión</p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="campo">
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        placeholder="Ingrese su correo"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="contrasena">
+                        Contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="contrasena"
+                        placeholder="Ingrese su contraseña"
+                        required
+                    >
+                </div>
+
+                <button type="submit">
+                    Iniciar sesión
+                </button>
+
+                <div id="mensaje"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>

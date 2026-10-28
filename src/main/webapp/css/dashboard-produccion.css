@@ -1,0 +1,219 @@
+/* ==============================
+   PANELES
+   ============================== */
+
+.panel-produccion {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.titulo-panel {
+    margin-bottom: 20px;
+}
+
+.titulo-panel h2 {
+    color: #6b3e26;
+    margin-bottom: 5px;
+}
+
+.titulo-panel p {
+    color: #777;
+}
+
+
+/* ==============================
+   TABLAS
+   ============================== */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f5f1e8;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+th {
+    color: #6b3e26;
+}
+
+td {
+    color: #444;
+}
+
+
+/* ==============================
+   ESTADOS DE PRODUCCIÓN
+   ============================== */
+
+.estado-pendiente {
+    color: #e08b00;
+    font-weight: bold;
+}
+
+.estado-proceso {
+    color: #1565c0;
+    font-weight: bold;
+}
+
+.estado-finalizada {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   STOCK
+   ============================== */
+
+.stock-normal {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.stock-bajo {
+    color: #c62828;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   BOTÓN ACTUALIZAR
+   ============================== */
+
+.btn-actualizar {
+    padding: 8px 14px;
+    background: #f0ad4e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-actualizar:hover {
+    background: #d99532;
+}
+
+
+/* ==============================
+   FORMULARIO
+   ============================== */
+
+#formularioProduccion h2 {
+    color: #6b3e26;
+    margin-bottom: 20px;
+}
+
+.campo-formulario {
+    margin-bottom: 18px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.campo-formulario input:disabled {
+    background: #eeeeee;
+    color: #666;
+}
+
+
+/* ==============================
+   BOTONES FORMULARIO
+   ============================== */
+
+.botones-formulario {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-guardar {
+    padding: 11px 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background: #256428;
+}
+
+.btn-cancelar {
+    padding: 11px 20px;
+    background: #777;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* ==============================
+   MENSAJES
+   ============================== */
+
+#mensajeProduccion {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.mensaje-exito {
+    color: #2e7d32;
+}
+
+.mensaje-error {
+    color: #c62828;
+}
+
+
+/* ==============================
+   OCULTAR
+   ============================== */
+
+.oculto {
+    display: none;
+}
+
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 700px) {
+
+    .panel-produccion {
+        padding: 18px;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+}

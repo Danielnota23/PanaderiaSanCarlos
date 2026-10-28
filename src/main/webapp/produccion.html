@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Producción - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/produccion.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <h2>
+                    Panadería
+                </h2>
+
+                <p>
+                    San Carlos
+                </p>
+
+            </div>
+
+
+            <nav>
+
+                <a href="dashboard-admin.html">
+                    🏠 Dashboard
+                </a>
+
+                <a href="productos.html">
+                    📦 Productos
+                </a>
+
+                <a href="pedidos.html">
+                    📝 Pedidos
+                </a>
+
+                <a
+                    href="produccion.html"
+                    class="activo"
+                >
+                    🏭 Producción
+                </a>
+
+                <a href="inventario.html">
+    📊 Inventario
+</a>
+
+               <a href="sucursales.html">
+    🏢 Sucursales
+</a>
+
+                <a href="usuarios.html">
+    👥 Usuarios
+</a>
+
+            </nav>
+
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+
+                    <h1>
+                        Producción
+                    </h1>
+
+                    <p>
+                        Control y seguimiento
+                        de producción
+                    </p>
+
+                </div>
+
+
+                <div class="usuario">
+
+                    <span>
+                        👤
+                    </span>
+
+                    <div>
+
+                        <strong id="nombreUsuario">
+                            Administrador
+                        </strong>
+
+                        <p id="rolUsuario">
+                            ADMIN
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- FILTROS -->
+            <section class="barra-produccion">
+
+                <input
+                    type="text"
+                    id="buscarProduccion"
+                    placeholder="Buscar producto o estado..."
+                >
+
+
+                <select id="filtroEstadoProduccion">
+
+                    <option value="">
+                        Todos los estados
+                    </option>
+
+                    <option value="PENDIENTE">
+                        Pendiente
+                    </option>
+
+                    <option value="EN_PROCESO">
+                        En proceso
+                    </option>
+
+                    <option value="FINALIZADA">
+                        Finalizada
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- TABLA -->
+            <section class="tabla-contenedor">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Producto
+                            </th>
+
+                            <th>
+                                Fecha
+                            </th>
+
+                            <th>
+                                Requerida
+                            </th>
+
+                            <th>
+                                Producida
+                            </th>
+
+                            <th>
+                                Estado
+                            </th>
+
+                            <th>
+                                Acciones
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tablaProduccion">
+
+                        <!-- JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- FORMULARIO ACTUALIZAR PRODUCCIÓN -->
+            <section
+                id="formularioProduccion"
+                class="formulario-produccion oculto"
+            >
+
+                <h2>
+                    Actualizar producción
+                </h2>
+
+
+                <input
+                    type="hidden"
+                    id="idProduccion"
+                >
+
+
+                <div class="campo-formulario">
+
+                    <label>
+                        Producto
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productoProduccion"
+                        disabled
+                    >
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label>
+                        Cantidad requerida
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cantidadRequerida"
+                        disabled
+                    >
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="cantidadProducida">
+                        Cantidad producida
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cantidadProducida"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="estadoProduccion">
+                        Estado
+                    </label>
+
+                    <select id="estadoProduccion">
+
+                        <option value="PENDIENTE">
+                            Pendiente
+                        </option>
+
+                        <option value="EN_PROCESO">
+                            En proceso
+                        </option>
+
+                        <option value="FINALIZADA">
+                            Finalizada
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="botones-formulario">
+
+                    <button
+                        id="btnGuardarProduccion"
+                        class="btn-guardar"
+                    >
+                        Guardar cambios
+                    </button>
+
+
+                    <button
+                        id="btnCancelarProduccion"
+                        class="btn-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+
+                <div id="mensajeProduccion"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/produccion.js"></script>
+
+</body>
+
+</html>

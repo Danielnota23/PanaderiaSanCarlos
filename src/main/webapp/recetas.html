@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recetas - Panadería San Carlos</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/recetas.css">
+    <link rel="stylesheet" href="css/umg.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <h2>Panadería</h2>
+                <p>San Carlos</p>
+            </div>
+
+            <nav>
+                <a href="dashboard-admin.html">🏠 Dashboard</a>
+                <a href="productos.html">📦 Productos</a>
+                <a href="pedidos.html">📝 Pedidos</a>
+                <a href="produccion.html">🏭 Producción</a>
+                <a href="recetas.html" class="activo">📋 Recetas</a>
+                <a href="planificacion.html">📑 Planificación</a>
+                <a href="inventario.html">📊 Inventario</a>
+                <a href="sucursales.html">🏢 Sucursales</a>
+                <a href="usuarios.html">👥 Usuarios</a>
+            </nav>
+
+            <div class="umg-sidebar">
+                <img src="img/logo-umg.png" alt="Logo UMG" onerror="this.style.display='none'">
+                <strong>Universidad Mariano Gálvez</strong>
+                Ingeniería en Sistemas · Desarrollo Web
+            </div>
+
+            <button id="cerrarSesion" class="btn-cerrar">Cerrar sesión</button>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <header class="encabezado">
+                <div>
+                    <h1>Recetas</h1>
+                    <p>Ingredientes y cantidades para producir cada tipo de pan</p>
+                </div>
+
+                <div class="usuario">
+                    <span>👤</span>
+                    <div>
+                        <strong id="nombreUsuario">Administrador</strong>
+                        <p id="rolUsuario">ADMIN</p>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- LISTADO DE RECETAS -->
+            <section class="bloque">
+
+                <div class="bloque-titulo">
+                    <div>
+                        <h2>Recetas por tipo de pan</h2>
+                        <p>Cada receta indica cuánto insumo se usa para producir el rendimiento indicado.</p>
+                    </div>
+
+                    <button id="btnNuevaReceta" class="btn btn-primario">+ Nueva receta</button>
+                </div>
+
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de pan</th>
+                                <th>Receta</th>
+                                <th class="num">Rendimiento</th>
+                                <th>Ingredientes</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaRecetas">
+                            <tr><td colspan="5">Cargando recetas...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+
+            <!-- FORMULARIO CREAR / EDITAR -->
+            <section id="formularioReceta" class="bloque oculto">
+
+                <div class="bloque-titulo">
+                    <div>
+                        <h2 id="tituloFormulario">Nueva receta</h2>
+                        <p>Si el pan ya tiene receta, al guardar se reemplazan sus ingredientes.</p>
+                    </div>
+                </div>
+
+                <form id="formReceta" novalidate>
+
+                    <div class="form-grid">
+
+                        <div class="campo">
+                            <label for="productoReceta">Tipo de pan *</label>
+                            <select id="productoReceta"></select>
+                            <span class="error-campo" id="errorProducto"></span>
+                        </div>
+
+                        <div class="campo">
+                            <label for="nombreReceta">Nombre de la receta *</label>
+                            <input type="text" id="nombreReceta" maxlength="100" placeholder="Ej. Receta Francés">
+                            <span class="error-campo" id="errorNombre"></span>
+                        </div>
+
+                        <div class="campo">
+                            <label for="rendimientoReceta">Rendimiento *</label>
+                            <input type="number" id="rendimientoReceta" min="1" step="1" placeholder="100">
+                            <small>Panes que salen con estas cantidades</small>
+                            <span class="error-campo" id="errorRendimiento"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="tabla-scroll">
+                        <table class="tabla-ingredientes">
+                            <thead>
+                                <tr>
+                                    <th>Ingrediente *</th>
+                                    <th>Cantidad *</th>
+                                    <th>Unidad</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="filasIngredientes"></tbody>
+                        </table>
+                    </div>
+
+                    <span class="error-campo" id="errorIngredientes"></span>
+
+                    <div class="botones">
+                        <button type="button" id="btnAgregarIngrediente" class="btn btn-secundario">
+                            + Agregar ingrediente
+                        </button>
+                    </div>
+
+                    <div class="botones">
+                        <button type="submit" id="btnGuardarReceta" class="btn btn-guardar">Guardar receta</button>
+                        <button type="button" id="btnCancelarReceta" class="btn btn-cancelar">Cancelar</button>
+                    </div>
+
+                    <div id="mensajeReceta" class="mensaje"></div>
+
+                </form>
+
+            </section>
+
+
+            <!-- CALCULADORA DE INSUMOS -->
+            <section class="bloque">
+
+                <div class="bloque-titulo">
+                    <div>
+                        <h2>¿Cuánto insumo necesito?</h2>
+                        <p>Calcula los ingredientes para una cantidad de pan y revisa si alcanza el inventario.</p>
+                    </div>
+                </div>
+
+                <form id="formCalculo" class="calculadora" novalidate>
+
+                    <div class="campo">
+                        <label for="productoCalculo">Tipo de pan</label>
+                        <select id="productoCalculo"></select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cantidadCalculo">Cantidad a producir</label>
+                        <input type="number" id="cantidadCalculo" min="1" step="1" placeholder="Ej. 500">
+                    </div>
+
+                    <button type="submit" class="btn btn-primario">Calcular</button>
+
+                </form>
+
+                <span class="error-campo" id="errorCalculo"></span>
+
+                <div class="tabla-scroll oculto" id="resultadoCalculo">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ingrediente</th>
+                                <th class="num">Necesario</th>
+                                <th class="num">En inventario</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaCalculo"></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+
+            <footer class="umg-pie">
+                <strong>Universidad Mariano Gálvez de Guatemala</strong><br>
+                Ingeniería en Sistemas de Información y Ciencias de la Computación · Desarrollo Web · Proyecto Final
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/recetas.js"></script>
+
+</body>
+
+</html>

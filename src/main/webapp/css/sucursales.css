@@ -1,0 +1,113 @@
+/* ==============================
+   BUSCADOR
+   ============================== */
+
+.barra-sucursales {
+    margin-bottom: 25px;
+}
+
+.barra-sucursales input {
+    width: 100%;
+
+    padding: 12px 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.barra-sucursales input:focus {
+    border-color: #6b3e26;
+}
+
+
+/* ==============================
+   PANEL
+   ============================== */
+
+.panel-sucursales {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-panel {
+    margin-bottom: 20px;
+}
+
+.titulo-panel h2 {
+    color: #6b3e26;
+    margin-bottom: 5px;
+}
+
+.titulo-panel p {
+    color: #777;
+}
+
+
+/* ==============================
+   TABLA
+   ============================== */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f5f1e8;
+}
+
+th,
+td {
+    padding: 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+th {
+    color: #6b3e26;
+}
+
+td {
+    color: #444;
+}
+
+
+/* ==============================
+   ESTADOS
+   ============================== */
+
+.estado-activo {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    color: #c62828;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 700px) {
+
+    .panel-sucursales {
+        padding: 18px;
+    }
+}

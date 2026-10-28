@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Sucursal - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard-sucursal.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <h2>
+                    Panadería
+                </h2>
+
+                <p>
+                    San Carlos
+                </p>
+
+            </div>
+
+
+            <nav>
+
+                <a
+                    href="dashboard-sucursal.html"
+                    class="activo"
+                >
+                    🏠 Inicio
+                </a>
+
+                <a href="#pedidosSucursal">
+                    📝 Mis pedidos
+                </a>
+
+                <a href="#nuevoPedido">
+                    ➕ Nuevo pedido
+                </a>
+
+            </nav>
+
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO -->
+        <main class="contenido">
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+
+                    <h1>
+                        Panel de Sucursal
+                    </h1>
+
+                    <p id="nombreSucursalEncabezado">
+                        Gestión de pedidos
+                    </p>
+
+                </div>
+
+
+                <div class="usuario">
+
+                    <span>
+                        👤
+                    </span>
+
+                    <div>
+
+                        <strong id="nombreUsuario">
+                            Usuario
+                        </strong>
+
+                        <p id="rolUsuario">
+                            SUCURSAL
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- TARJETAS -->
+            <section class="tarjetas">
+
+                <div class="tarjeta">
+
+                    <div class="icono">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Mis pedidos
+                        </h3>
+
+                        <p
+                            class="numero"
+                            id="totalPedidosSucursal"
+                        >
+                            0
+                        </p>
+
+                        <span>
+                            Pedidos registrados
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <div class="icono">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Pendientes
+                        </h3>
+
+                        <p
+                            class="numero"
+                            id="pedidosPendientes"
+                        >
+                            0
+                        </p>
+
+                        <span>
+                            Pedidos pendientes
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <div class="icono">
+                        🏭
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            En producción
+                        </h3>
+
+                        <p
+                            class="numero"
+                            id="pedidosProduccion"
+                        >
+                            0
+                        </p>
+
+                        <span>
+                            Pedidos en proceso
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <div class="icono">
+                        ✅
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Despachados
+                        </h3>
+
+                        <p
+                            class="numero"
+                            id="pedidosDespachados"
+                        >
+                            0
+                        </p>
+
+                        <span>
+                            Pedidos completados
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MIS PEDIDOS -->
+            <section
+                id="pedidosSucursal"
+                class="panel-sucursal"
+            >
+
+                <div class="titulo-panel">
+
+                    <h2>
+                        Mis pedidos
+                    </h2>
+
+                    <p>
+                        Pedidos registrados por esta sucursal
+                    </p>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Fecha
+                                </th>
+
+                                <th>
+                                    Turno
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                                <th>
+                                    Observación
+                                </th>
+
+                                <th>
+                                    Detalle
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaPedidosSucursal">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- NUEVO PEDIDO -->
+            <section
+                id="nuevoPedido"
+                class="panel-sucursal nuevo-pedido"
+            >
+
+                <div class="titulo-panel">
+
+                    <h2>
+                        Nuevo pedido
+                    </h2>
+
+                    <p>
+                        Registrar un pedido para la sucursal
+                    </p>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="fechaPedido">
+                        Fecha
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaPedido"
+                    >
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="turnoPedido">
+                        Turno
+                    </label>
+
+                    <select id="turnoPedido">
+
+                        <option value="MANANA">
+                            Mañana
+                        </option>
+
+                        <option value="TARDE">
+                            Tarde
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="observacionPedido">
+                        Observación
+                    </label>
+
+                    <textarea
+                        id="observacionPedido"
+                        placeholder="Observaciones del pedido"
+                    ></textarea>
+
+                </div>
+
+
+                <h3>
+                    Productos
+                </h3>
+
+
+                <div id="listaProductosPedido">
+
+                    <!-- JavaScript cargará productos -->
+
+                </div>
+
+
+                <button
+                    id="btnGuardarPedido"
+                    class="btn-guardar"
+                >
+                    Registrar pedido
+                </button>
+
+
+                <div id="mensajePedidoSucursal"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/dashboard-sucursal.js"></script>
+
+</body>
+
+</html>

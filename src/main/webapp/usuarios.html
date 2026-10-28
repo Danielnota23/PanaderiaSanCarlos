@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Usuarios - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/usuarios.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <h2>
+                    Panadería
+                </h2>
+
+                <p>
+                    San Carlos
+                </p>
+
+            </div>
+
+            <nav>
+
+                <a href="dashboard-admin.html">
+                    🏠 Dashboard
+                </a>
+
+                <a href="productos.html">
+                    📦 Productos
+                </a>
+
+                <a href="pedidos.html">
+                    📝 Pedidos
+                </a>
+
+                <a href="produccion.html">
+                    🏭 Producción
+                </a>
+
+                <a href="inventario.html">
+                    📊 Inventario
+                </a>
+
+                <a href="sucursales.html">
+                    🏢 Sucursales
+                </a>
+
+                <a
+                    href="usuarios.html"
+                    class="activo"
+                >
+                    👥 Usuarios
+                </a>
+
+            </nav>
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO -->
+        <main class="contenido">
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+
+                    <h1>
+                        Usuarios
+                    </h1>
+
+                    <p>
+                        Administración de usuarios
+                        del sistema
+                    </p>
+
+                </div>
+
+                <div class="usuario">
+
+                    <span>
+                        👤
+                    </span>
+
+                    <div>
+
+                        <strong id="nombreUsuario">
+                            Administrador
+                        </strong>
+
+                        <p id="rolUsuario">
+                            ADMIN
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- BUSCADOR Y FILTRO -->
+            <section class="barra-usuarios">
+
+                <input
+                    type="text"
+                    id="buscarUsuario"
+                    placeholder="Buscar por nombre o correo..."
+                >
+
+                <select id="filtroRol">
+
+                    <option value="">
+                        Todos los roles
+                    </option>
+
+                    <option value="ADMIN">
+                        Administrador
+                    </option>
+
+                    <option value="SUCURSAL">
+                        Sucursal
+                    </option>
+
+                    <option value="PRODUCCION">
+                        Producción
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- TABLA -->
+            <section class="panel-usuarios">
+
+                <div class="titulo-panel">
+
+                    <h2>
+                        Usuarios registrados
+                    </h2>
+
+                    <p>
+                        Usuarios activos del sistema
+                    </p>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Nombre
+                                </th>
+
+                                <th>
+                                    Correo
+                                </th>
+
+                                <th>
+                                    Rol
+                                </th>
+
+                                <th>
+                                    Sucursal
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaUsuarios">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/usuarios.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Pedidos - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/pedidos.css"
+    >
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <h2>Panadería</h2>
+                <p>San Carlos</p>
+            </div>
+
+            <nav>
+
+                <a href="dashboard-admin.html">
+                    🏠 Dashboard
+                </a>
+
+                <a href="productos.html">
+                    📦 Productos
+                </a>
+
+                <a
+                    href="pedidos.html"
+                    class="activo"
+                >
+                    📝 Pedidos
+                </a>
+
+                <a href="produccion.html">
+    🏭 Producción
+</a>
+
+                <a href="inventario.html">
+    📊 Inventario
+</a>
+
+                <a href="sucursales.html">
+    🏢 Sucursales
+</a>
+
+                <a href="usuarios.html">
+    👥 Usuarios
+</a>
+
+            </nav>
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <header class="encabezado">
+
+                <div>
+
+                    <h1>Pedidos</h1>
+
+                    <p>
+                        Administración de pedidos
+                        de las sucursales
+                    </p>
+
+                </div>
+
+                <div class="usuario">
+
+                    <span>👤</span>
+
+                    <div>
+
+                        <strong id="nombreUsuario">
+                            Administrador
+                        </strong>
+
+                        <p id="rolUsuario">
+                            ADMIN
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- FILTROS -->
+            <section class="barra-pedidos">
+
+                <input
+                    type="text"
+                    id="buscarPedido"
+                    placeholder="Buscar por sucursal, turno o estado..."
+                >
+
+                <select id="filtroEstado">
+
+                    <option value="">
+                        Todos los estados
+                    </option>
+
+                    <option value="PENDIENTE">
+                        Pendiente
+                    </option>
+
+                    <option value="EN_PRODUCCION">
+                        En producción
+                    </option>
+
+                    <option value="DESPACHADO">
+                        Despachado
+                    </option>
+
+                    <option value="CANCELADO">
+                        Cancelado
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- TABLA PEDIDOS -->
+            <section class="tabla-contenedor">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Sucursal</th>
+
+                            <th>Fecha</th>
+
+                            <th>Turno</th>
+
+                            <th>Estado</th>
+
+                            <th>Observación</th>
+
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaPedidos">
+
+                        <!-- JavaScript cargará los pedidos -->
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- DETALLE DEL PEDIDO -->
+            <section
+                id="detallePedido"
+                class="detalle-pedido oculto"
+            >
+
+                <div class="detalle-encabezado">
+
+                    <h2>
+                        Detalle del pedido
+                    </h2>
+
+                    <button
+                        id="btnCerrarDetalle"
+                        class="btn-cerrar-detalle"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="datos-pedido">
+
+                    <p>
+                        <strong>Pedido:</strong>
+
+                        <span id="detalleIdPedido">
+                            -
+                        </span>
+                    </p>
+
+
+                    <p>
+                        <strong>Sucursal:</strong>
+
+                        <span id="detalleSucursal">
+                            -
+                        </span>
+                    </p>
+
+
+                    <p>
+                        <strong>Fecha:</strong>
+
+                        <span id="detalleFecha">
+                            -
+                        </span>
+                    </p>
+
+
+                    <p>
+                        <strong>Turno:</strong>
+
+                        <span id="detalleTurno">
+                            -
+                        </span>
+                    </p>
+
+
+                    <p>
+                        <strong>Estado:</strong>
+
+                        <span id="detalleEstado">
+                            -
+                        </span>
+                    </p>
+
+                </div>
+
+
+                <h3>
+                    Productos solicitados
+                </h3>
+
+
+                <table class="tabla-detalle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Producto</th>
+
+                            <th>Cantidad</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaDetallePedido">
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- CAMBIAR ESTADO -->
+            <section
+                id="formularioEstado"
+                class="formulario-estado oculto"
+            >
+
+                <h2>
+                    Cambiar estado del pedido
+                </h2>
+
+
+                <input
+                    type="hidden"
+                    id="idPedidoEstado"
+                >
+
+
+                <div class="campo-formulario">
+
+                    <label for="nuevoEstado">
+                        Nuevo estado
+                    </label>
+
+                    <select id="nuevoEstado">
+
+                        <option value="PENDIENTE">
+                            Pendiente
+                        </option>
+
+                        <option value="EN_PRODUCCION">
+                            En producción
+                        </option>
+
+                        <option value="DESPACHADO">
+                            Despachado
+                        </option>
+
+                        <option value="CANCELADO">
+                            Cancelado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="botones-formulario">
+
+                    <button
+                        id="btnGuardarEstado"
+                        class="btn-guardar"
+                    >
+                        Guardar cambio
+                    </button>
+
+                    <button
+                        id="btnCancelarEstado"
+                        class="btn-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+
+                <div id="mensajePedido"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/pedidos.js"></script>
+
+</body>
+
+</html>

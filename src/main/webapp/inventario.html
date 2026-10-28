@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Inventario - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/inventario.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <h2>
+                    Panadería
+                </h2>
+
+                <p>
+                    San Carlos
+                </p>
+
+            </div>
+
+
+            <nav>
+
+                <a href="dashboard-admin.html">
+                    🏠 Dashboard
+                </a>
+
+                <a href="productos.html">
+                    📦 Productos
+                </a>
+
+                <a href="pedidos.html">
+                    📝 Pedidos
+                </a>
+
+                <a href="produccion.html">
+                    🏭 Producción
+                </a>
+
+                <a
+                    href="inventario.html"
+                    class="activo"
+                >
+                    📊 Inventario
+                </a>
+
+                <a href="sucursales.html">
+    🏢 Sucursales
+</a>
+
+                <a href="usuarios.html">
+    👥 Usuarios
+</a>
+
+            </nav>
+
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO -->
+        <main class="contenido">
+
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+
+                    <h1>
+                        Inventario
+                    </h1>
+
+                    <p>
+                        Control de existencias,
+                        entradas y salidas
+                    </p>
+
+                </div>
+
+
+                <div class="usuario">
+
+                    <span>
+                        👤
+                    </span>
+
+                    <div>
+
+                        <strong id="nombreUsuario">
+                            Administrador
+                        </strong>
+
+                        <p id="rolUsuario">
+                            ADMIN
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ACCIONES -->
+            <section class="barra-inventario">
+
+                <input
+                    type="text"
+                    id="buscarIngrediente"
+                    placeholder="Buscar ingrediente..."
+                >
+
+
+                <select id="filtroStock">
+
+                    <option value="">
+                        Todos los niveles
+                    </option>
+
+                    <option value="NORMAL">
+                        Stock normal
+                    </option>
+
+                    <option value="BAJO_STOCK">
+                        Stock bajo
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="btnNuevaEntrada"
+                    class="btn-entrada"
+                >
+                    + Entrada
+                </button>
+
+
+                <button
+                    id="btnNuevaSalida"
+                    class="btn-salida"
+                >
+                    - Salida
+                </button>
+
+            </section>
+
+
+            <!-- TABLA DE INGREDIENTES -->
+            <section class="panel-inventario">
+
+                <div class="titulo-panel">
+
+                    <h2>
+                        Existencias
+                    </h2>
+
+                    <p>
+                        Inventario actual de ingredientes
+                    </p>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Ingrediente
+                                </th>
+
+                                <th>
+                                    Unidad
+                                </th>
+
+                                <th>
+                                    Existencia
+                                </th>
+
+                                <th>
+                                    Mínimo
+                                </th>
+
+                                <th>
+                                    Nivel
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaIngredientes">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- FORMULARIO MOVIMIENTO -->
+            <section
+                id="formularioMovimiento"
+                class="formulario-movimiento oculto"
+            >
+
+                <h2 id="tituloMovimiento">
+                    Registrar movimiento
+                </h2>
+
+
+                <div class="campo-formulario">
+
+                    <label for="ingredienteMovimiento">
+                        Ingrediente
+                    </label>
+
+                    <select id="ingredienteMovimiento">
+
+                        <!-- JavaScript -->
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="cantidadMovimiento">
+                        Cantidad
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cantidadMovimiento"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Ingrese cantidad"
+                    >
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="descripcionMovimiento">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="descripcionMovimiento"
+                        placeholder="Motivo del movimiento"
+                    ></textarea>
+
+                </div>
+
+
+                <input
+                    type="hidden"
+                    id="tipoMovimiento"
+                >
+
+
+                <div class="botones-formulario">
+
+                    <button
+                        id="btnGuardarMovimiento"
+                        class="btn-guardar"
+                    >
+                        Guardar movimiento
+                    </button>
+
+
+                    <button
+                        id="btnCancelarMovimiento"
+                        class="btn-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+
+                <div id="mensajeInventario"></div>
+
+            </section>
+
+
+            <!-- HISTORIAL -->
+            <section class="panel-inventario historial">
+
+                <div class="titulo-panel">
+
+                    <h2>
+                        Historial de movimientos
+                    </h2>
+
+                    <p>
+                        Entradas y salidas registradas
+                    </p>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Ingrediente
+                                </th>
+
+                                <th>
+                                    Tipo
+                                </th>
+
+                                <th>
+                                    Cantidad
+                                </th>
+
+                                <th>
+                                    Fecha
+                                </th>
+
+                                <th>
+                                    Descripción
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaMovimientos">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/inventario.js"></script>
+
+</body>
+
+</html>

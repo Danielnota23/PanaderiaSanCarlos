@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Productos - Panadería San Carlos
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/productos.css"
+    >
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <h2>Panadería</h2>
+                <p>San Carlos</p>
+            </div>
+
+            <nav>
+
+                <a href="dashboard-admin.html">
+                    🏠 Dashboard
+                </a>
+
+                <a
+                    href="productos.html"
+                    class="activo"
+                >
+                    📦 Productos
+                </a>
+
+                <a href="pedidos.html">
+    📝 Pedidos
+</a>
+
+                <a href="produccion.html">
+    🏭 Producción
+</a>
+
+                <a href="inventario.html">
+    📊 Inventario
+</a>
+
+                <a href="sucursales.html">
+    🏢 Sucursales
+</a>
+
+                <a href="usuarios.html">
+    👥 Usuarios
+</a>
+
+            </nav>
+
+            <button
+                id="cerrarSesion"
+                class="btn-cerrar"
+            >
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO -->
+        <main class="contenido">
+
+            <header class="encabezado">
+
+                <div>
+                    <h1>Productos</h1>
+
+                    <p>
+                        Administración de productos
+                        de Panadería San Carlos
+                    </p>
+                </div>
+
+                <div class="usuario">
+
+                    <span>👤</span>
+
+                    <div>
+                        <strong id="nombreUsuario">
+                            Administrador
+                        </strong>
+
+                        <p id="rolUsuario">
+                            ADMIN
+                        </p>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTROLES -->
+            <section class="barra-productos">
+
+                <input
+                    type="text"
+                    id="buscarProducto"
+                    placeholder="Buscar producto..."
+                >
+
+                <button
+                    id="btnNuevoProducto"
+                    class="btn-nuevo"
+                >
+                    + Nuevo producto
+                </button>
+
+            </section>
+
+
+            <!-- TABLA -->
+            <section class="tabla-contenedor">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaProductos">
+
+                        <!-- Se llena desde JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- FORMULARIO -->
+            <section
+                id="formularioProducto"
+                class="formulario-producto oculto"
+            >
+
+                <h2 id="tituloFormulario">
+                    Nuevo producto
+                </h2>
+
+                <input
+                    type="hidden"
+                    id="idProducto"
+                >
+
+
+                <div class="campo-formulario">
+
+                    <label for="nombreProducto">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreProducto"
+                        placeholder="Nombre del producto"
+                    >
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="descripcionProducto">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="descripcionProducto"
+                        placeholder="Descripción del producto"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="estadoProducto">
+                        Estado
+                    </label>
+
+                    <select id="estadoProducto">
+
+                        <option value="true">
+                            Activo
+                        </option>
+
+                        <option value="false">
+                            Inactivo
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="botones-formulario">
+
+                    <button
+                        id="btnGuardarProducto"
+                        class="btn-guardar"
+                    >
+                        Guardar
+                    </button>
+
+                    <button
+                        id="btnCancelarProducto"
+                        class="btn-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+                <div id="mensajeProducto"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/productos.js"></script>
+
+</body>
+
+</html>
