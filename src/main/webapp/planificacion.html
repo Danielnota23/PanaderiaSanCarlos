@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planificación - Panadería San Carlos</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/recetas.css">
+    <link rel="stylesheet" href="css/planificacion.css">
+    <link rel="stylesheet" href="css/umg.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENÚ LATERAL (se arma según el rol del usuario) -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <h2>Panadería</h2>
+                <p>San Carlos</p>
+            </div>
+
+            <nav id="menuLateral"></nav>
+
+            <div class="umg-sidebar">
+                <img src="img/logo-umg.png" alt="Logo UMG" onerror="this.style.display='none'">
+                <strong>Universidad Mariano Gálvez</strong>
+                Ingeniería en Sistemas · Desarrollo Web
+            </div>
+
+            <button id="cerrarSesion" class="btn-cerrar">Cerrar sesión</button>
+
+        </aside>
+
+
+        <main class="contenido">
+
+            <header class="encabezado">
+                <div>
+                    <h1>Planificación de producción</h1>
+                    <p>Consolidado de pedidos de las sucursales e insumos necesarios</p>
+                </div>
+
+                <div class="usuario">
+                    <span>👤</span>
+                    <div>
+                        <strong id="nombreUsuario">Usuario</strong>
+                        <p id="rolUsuario">ROL</p>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- FILTROS -->
+            <form id="formFiltros" class="bloque filtros" novalidate>
+
+                <div class="campo">
+                    <label for="fechaConsulta">Fecha</label>
+                    <input type="date" id="fechaConsulta" required>
+                </div>
+
+                <div class="campo">
+                    <label for="turnoConsulta">Turno</label>
+                    <select id="turnoConsulta">
+                        <option value="">Mañana y tarde</option>
+                        <option value="MANANA">Mañana</option>
+                        <option value="TARDE">Tarde</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primario">Consultar</button>
+
+                <span class="error-campo" id="errorFiltros"></span>
+
+            </form>
+
+
+            <!-- RESUMEN -->
+            <section class="tarjetas resumen">
+
+                <div class="tarjeta">
+                    <div class="icono">🥖</div>
+                    <div>
+                        <h3>Total de panes</h3>
+                        <p class="numero" id="totalPanes">0</p>
+                        <span>Pedidos de la fecha</span>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">🏢</div>
+                    <div>
+                        <h3>Sucursales</h3>
+                        <p class="numero" id="totalSucursales">0</p>
+                        <span>Con pedido registrado</span>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">📝</div>
+                    <div>
+                        <h3>Pendientes</h3>
+                        <p class="numero" id="totalPendientes">0</p>
+                        <span>Pedidos sin enviar a producción</span>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">⚠️</div>
+                    <div>
+                        <h3>Insumos</h3>
+                        <p class="numero" id="totalFaltantes">0</p>
+                        <span>Ingredientes que no alcanzan</span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- CONSOLIDADO -->
+            <section class="bloque">
+
+                <div class="bloque-titulo">
+                    <div>
+                        <h2>Consolidado de pedidos</h2>
+                        <p id="descripcionConsolidado">Cantidad de pan que pidió cada sucursal.</p>
+                    </div>
+
+                    <button id="btnGenerar" class="btn btn-guardar" disabled>
+                        🏭 Enviar pedidos pendientes a producción
+                    </button>
+                </div>
+
+                <div class="tabla-scroll">
+                    <table class="tabla-consolidado">
+                        <thead id="encabezadoConsolidado"></thead>
+                        <tbody id="cuerpoConsolidado">
+                            <tr><td>Seleccione una fecha y presione Consultar</td></tr>
+                        </tbody>
+                        <tfoot id="pieConsolidado"></tfoot>
+                    </table>
+                </div>
+
+                <div id="mensajeGenerar" class="mensaje"></div>
+
+            </section>
+
+
+            <!-- REQUERIMIENTO DE INSUMOS -->
+            <section class="bloque">
+
+                <div class="bloque-titulo">
+                    <div>
+                        <h2>Insumos para la producción pendiente</h2>
+                        <p>Según las recetas y lo que falta producir en la fecha seleccionada.</p>
+                    </div>
+                </div>
+
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ingrediente</th>
+                                <th class="num">Necesario</th>
+                                <th class="num">En inventario</th>
+                                <th class="num">Faltante</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaInsumos">
+                            <tr><td colspan="5">Sin datos</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+
+            <footer class="umg-pie">
+                <strong>Universidad Mariano Gálvez de Guatemala</strong><br>
+                Ingeniería en Sistemas de Información y Ciencias de la Computación · Desarrollo Web · Proyecto Final
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/planificacion.js"></script>
+
+</body>
+
+</html>

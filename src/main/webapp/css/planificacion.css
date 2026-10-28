@@ -1,0 +1,58 @@
+/* ==============================================
+   PLANIFICACIÓN DE PRODUCCIÓN
+   (usa también los estilos base de recetas.css)
+   ============================================== */
+
+.filtros {
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 22px 28px;
+}
+
+.filtros .campo {
+    min-width: 200px;
+}
+
+.filtros .error-campo {
+    flex-basis: 100%;
+    margin-top: 0;
+}
+
+.resumen {
+    margin-bottom: 28px;
+}
+
+/* Tabla tipo hoja de Excel */
+.tabla-consolidado th,
+.tabla-consolidado td {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.tabla-consolidado th:first-child,
+.tabla-consolidado td:first-child {
+    text-align: left;
+}
+
+.tabla-consolidado td.vacio {
+    color: #bbb;
+}
+
+.tabla-consolidado .col-total {
+    background: #f9f6f1;
+    font-weight: bold;
+    color: #6b3e26;
+}
+
+.tabla-consolidado tfoot td {
+    background: #f5f1e8;
+    font-weight: bold;
+    color: #6b3e26;
+    border-top: 2px solid #ead7c7;
+}
+
+.filtros .error-campo:empty {
+    display: none;
+}
