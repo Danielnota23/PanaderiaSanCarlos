@@ -24,6 +24,7 @@
         href="css/dashboard-produccion.css"
     >
 
+    <link rel="stylesheet" href="css/umg.css">
 </head>
 
 <body>
@@ -59,8 +60,18 @@
                     📊 Inventario
                 </a>
 
+                <a href="planificacion.html">
+                    📑 Planificación
+                </a>
+
             </nav>
 
+
+            <div class="umg-sidebar">
+                <img src="img/logo-umg.png" alt="Logo UMG" onerror="this.style.display='none'">
+                <strong>Universidad Mariano Gálvez</strong>
+                Ingeniería en Sistemas · Desarrollo Web
+            </div>
 
             <button
                 id="cerrarSesion"
@@ -312,6 +323,12 @@
                         min="0"
                     >
 
+                    <small class="ayuda-insumos">
+                        Escriba el total producido hasta ahora. Por las unidades
+                        nuevas se descuentan automáticamente los ingredientes
+                        según la receta del pan.
+                    </small>
+
                 </div>
 
 
@@ -426,6 +443,11 @@
                 </div>
 
             </section>
+
+            <footer class="umg-pie">
+                <strong>Universidad Mariano Gálvez de Guatemala</strong><br>
+                Ingeniería en Sistemas de Información y Ciencias de la Computación · Desarrollo Web · Proyecto Final
+            </footer>
 
         </main>
 
