@@ -1,107 +1,165 @@
+/* =====================================================
+   LOGIN - PANADERÍA SAN CARLOS
+   Fondo de papel kraft y una tarjeta como ticket de pedido.
+   ===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+
+:root {
+    --kraft: #c89f72;
+    --tinta: #1d3b57;
+    --tinta-oscura: #142b40;
+    --texto: #22303a;
+    --texto-suave: #5f6b70;
+    --linea: #d6d9d2;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background: #f5f1e8;
-
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: var(--texto);
+    background-color: var(--kraft);
+    background-image:
+        repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 7px),
+        repeating-linear-gradient(25deg, rgba(90, 60, 30, 0.05) 0 1px, transparent 1px 9px);
 }
 
 .login-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 16px;
 }
 
+/* Ticket: borde superior "dentado" como papel cortado */
 .login-card {
+    position: relative;
     width: 100%;
-    max-width: 420px;
+    max-width: 410px;
+    padding: 38px 36px 30px;
 
-    background: white;
-    padding: 40px;
+    background: #fff;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 18px 40px rgba(60, 40, 20, 0.25);
+}
 
-    border-radius: 15px;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background:
+        linear-gradient(135deg, transparent 50%, #fff 50%) 0 0 / 14px 10px repeat-x,
+        linear-gradient(225deg, transparent 50%, #fff 50%) 7px 0 / 14px 10px repeat-x;
 }
 
 .logo {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 }
 
 .logo h1 {
-    color: #6b3e26;
-    margin-bottom: 8px;
+    display: inline-block;
+    padding: 10px 18px 8px;
+
+    font-family: "Zilla Slab", Georgia, serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--tinta);
+
+    border: 2px solid var(--tinta);
+    outline: 1px solid var(--tinta);
+    outline-offset: 3px;
+    border-radius: 4px;
+    transform: rotate(-1.5deg);
 }
 
 .logo p {
-    color: #777;
+    margin-top: 12px;
+    color: var(--texto-suave);
 }
 
 .campo {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .campo label {
     display: block;
-    margin-bottom: 8px;
-
-    font-weight: bold;
-    color: #444;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--texto);
 }
 
 .campo input {
     width: 100%;
-    padding: 13px;
+    padding: 12px;
 
-    border: 1px solid #ccc;
-    border-radius: 8px;
-
+    border: 1px solid #c9ccc4;
+    border-radius: 4px;
     font-size: 15px;
     outline: none;
 }
 
 .campo input:focus {
-    border-color: #6b3e26;
+    border-color: var(--tinta);
+    box-shadow: 0 0 0 3px rgba(29, 59, 87, 0.15);
 }
 
 button {
     width: 100%;
     padding: 13px;
+    margin-top: 4px;
 
-    background: #6b3e26;
-    color: white;
-
+    background: var(--tinta);
+    color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
 
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
 }
 
 button:hover {
-    background: #512d1b;
+    background: var(--tinta-oscura);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--tinta);
+    outline-offset: 3px;
 }
 
 #mensaje {
-    margin-top: 20px;
+    margin-top: 18px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .error {
-    color: #c62828;
+    color: #a8361c;
 }
 
 .exito {
-    color: #2e7d32;
+    color: #3d6b3a;
+}
+
+/* Foto de fondo del login */
+body {
+    background:
+        linear-gradient(rgba(20, 43, 64, 0.55), rgba(20, 43, 64, 0.55)),
+        url("../img/fondo-login.jpg") center / cover no-repeat fixed,
+        var(--kraft);
 }
