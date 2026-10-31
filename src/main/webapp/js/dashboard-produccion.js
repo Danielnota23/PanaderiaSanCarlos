@@ -328,10 +328,19 @@ function abrirFormulario(idProduccion) {
         registro.cantidadRequerida;
 
 
-    document.getElementById(
-        "cantidadProducida"
-    ).value =
-        registro.cantidadProducida;
+    const campoNuevas = document.getElementById("cantidadProducida");
+    const faltan = registro.cantidadRequerida - registro.cantidadProducida;
+
+    // El usuario escribe solo las unidades nuevas; el total se calcula al guardar
+    campoNuevas.value = "";
+    campoNuevas.dataset.actual = registro.cantidadProducida;
+    campoNuevas.max = faltan;
+
+    document.getElementById("ayudaProduccion").textContent =
+        "Ya se registraron " + registro.cantidadProducida + " de "
+        + registro.cantidadRequerida + ". Escriba solo las unidades nuevas "
+        + "(faltan " + faltan + "); el sistema las suma y descuenta sus "
+        + "ingredientes según la receta.";
 
 
     document.getElementById(
@@ -390,14 +399,17 @@ async function guardarProduccion() {
         );
 
 
-    const cantidadProducida =
-        parseInt(
-            document
-                .getElementById(
-                    "cantidadProducida"
-                )
-                .value
-        );
+    const campoNuevas = document.getElementById("cantidadProducida");
+    const nuevas = parseInt(campoNuevas.value);
+    const actual = parseInt(campoNuevas.dataset.actual) || 0;
+
+    if (isNaN(nuevas) || nuevas < 0) {
+        mostrarMensaje("Escriba cuántas unidades nuevas se produjeron (0 o más)", false);
+        return;
+    }
+
+    // Total producido = lo que ya había + las unidades nuevas
+    const cantidadProducida = actual + nuevas;
 
 
     const estado =
@@ -430,7 +442,7 @@ async function guardarProduccion() {
     ) {
 
         mostrarMensaje(
-            "La cantidad producida no puede superar la requerida",
+            "Solo faltan " + (cantidadRequerida - actual) + " unidades para completar lo requerido",
             false
         );
 
